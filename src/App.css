@@ -13,6 +13,12 @@
   }
 }
 
+.Navbar {
+  font-size: 25px;
+  color: #ffff;
+  text-indent: 50px;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
