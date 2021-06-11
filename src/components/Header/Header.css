@@ -1,0 +1,14 @@
+.EstilosHeader{
+    text-align: center;
+    min-height: 30px;
+    width: 100%;
+}
+
+.EstilosHeader h1{
+    display: inline-flex;
+    padding-left: 20px;
+    color: beige;
+    align-items: center;
+    vertical-align: top;
+    }
+

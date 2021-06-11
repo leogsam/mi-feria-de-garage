@@ -1,13 +1,24 @@
 import './App.css';
-import Navbar from './components/Navbar';
+import Navegation from './components/Navegation/Navegation';
+import Header from './components/Header/Header';
+import CartWidget from './components/CarWidget/CartWidget'
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+
+
 
 function App() {
   return (
-    <div className="Navbar">
       <div>
-        <Navbar/>
+        <CartWidget/>
+        <Header/>
+        <Navegation/>
+        <ItemListContainer title={'Articulo 1 a la venta'}/>
+        <ItemListContainer title={'Articulo 2 a la venta'}/>
+        <ItemListContainer title={'Articulo 3 a la venta'}/>
+        <ItemListContainer title={'Articulo 4 a la venta'}/>
+
       </div>
-    </div>
+   
   );
 }
 
