@@ -1,7 +1,14 @@
+.BannerStyle{
+
+    background-color: chocolate;
+}
 .EstilosHeader{
     text-align: center;
     min-height: 30px;
     width: 100%;
+    background-color: chocolate;
+    display: inline-block;
+    
 }
 
 .EstilosHeader h1{

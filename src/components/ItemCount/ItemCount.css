@@ -1,0 +1,12 @@
+.CardsStyle{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.Card {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
