@@ -4,38 +4,25 @@ import Header from './components/Header/Header';
 import CartWidget from './components/CarWidget/CartWidget'
 //import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import ArticleCard from './components/ItemCount/ItemCount';
-import { Component } from 'react';
+import React from 'react';
 import { Button } from 'semantic-ui-react'
 
 
 
-
-class App extends Component {
-  constructor() {
-    super();
-    this.state={
-      countCardOne:1,
-      countCardTwo:1,
-      countCardThree:1,
-    }
+function App (){
+  let [countCard, setcountCard] = React.useState(0);
+  
+  let handleCounterUp = () => {
+    setcountCard(countCard +1);
   }
-
-  handleCounterUp = () => this.setState({countCardOne: this.state.countCardOne + 1});
-
-  handleCounterDown = () => this.setState({countCardOne: this.state.countCardOne - 1});
+  let handleCounterDown = () => {
+    if(countCard === 0){
+      alert("El carrito esta vacio");
+    }else{
+    setcountCard(countCard -1);
+  }
+}
   
-  handleCounterUp1 = () => this.setState({countCardTwo: this.state.countCardTwo + 1});
-
-  handleCounterDown1 = () => this.setState({countCardTwo: this.state.countCardTwo - 1});
-
-  handleCounterUp2 = () => this.setState({countCardThree: this.state.countCardThree + 1});
-
-  handleCounterDown2 = () => this.setState({countCardThree: this.state.countCardThree - 1});
-    
-  
-
-
-  render() {
   return (
       <div>
         <div className='BannerStyle'>
@@ -53,31 +40,30 @@ class App extends Component {
           name={'Termo Stanely'} 
           price={'$1500.-'} 
           description={'Termo Aluminio ultra Resistente'}
-          amount={this.state.countCardOne}
+          amount={countCard}
           boton={ 
             <Button.Group>
-            <Button negative onClick={this.handleCounterDown}>-</Button>
+            <Button negative onClick={handleCounterDown}>-</Button>
             <Button.Or />
-            <Button onClick={this.handleCounterUp} positive>+</Button>
+            <Button onClick={handleCounterUp} positive>+</Button>
             <Button color='grey'>Agregar al Carrito</Button>
             </Button.Group>
             }
-            />
-            
+            /> 
           </div>
-          
+
           <div className='Card'>
           <ArticleCard
           img={'data:image/png;base64,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'}
           name={'Pava Electrica'} 
           price={'$2500.-'} 
           description={'Pava Electrica con Corte de Temperatura'}
-          amount={this.state.countCardTwo}
+          amount={countCard}
           boton={ 
             <Button.Group>
-            <Button negative onClick={this.handleCounterDown1}>-</Button>
+            <Button negative onClick={handleCounterDown}>-</Button>
             <Button.Or />
-            <Button onClick={this.handleCounterUp1} positive>+</Button>
+            <Button onClick={handleCounterUp} positive>+</Button>
             <Button color='grey'>Agregar al Carrito</Button>
             </Button.Group>} />
           </div>
@@ -88,20 +74,23 @@ class App extends Component {
           name={'Cafetera Nespresso Inissia'} 
           price={'$9700.-'} 
           description={'Cafetera Automatica con Capsulas'}
-          amount={this.state.countCardThree}
+          amount={countCard}
           boton={ 
             <Button.Group>
-            <Button negative onClick={this.handleCounterDown2}>-</Button>
+            <Button negative onClick={handleCounterDown}>-</Button>
             <Button.Or />
-            <Button onClick={this.handleCounterUp2} positive>+</Button>
+            <Button onClick={handleCounterUp} positive>+</Button>
             <Button color='grey'>Agregar al Carrito</Button>
             </Button.Group>}/>
           </div>
+          
+         
+          
           </div>
 
       </div>
    
   );
 }
-}
+
 export default App;

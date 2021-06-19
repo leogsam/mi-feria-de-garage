@@ -4,7 +4,7 @@ import './Header.css';
 function Header() {
     return (
         <div className="EstilosHeader">
-            <h1>Bienvenido a MI Ferio de Garage</h1>
+            <h1>Bienvenido a MI Feria de Garage</h1>
         </div>
     )
 }
